@@ -12,5 +12,3 @@ RUN apk update && apk add --no-cache \
     && apk add --no-cache glibc-2.23-r3.apk && rm glibc-2.23-r3.apk \
     && ln -s /lib/libz.so.1 /usr/glibc-compat/lib/ \
     && ln -s /lib/libc.musl-x86_64.so.1 /usr/glibc-compat/lib
-
-RUN docker-compose -v
