@@ -1,5 +1,9 @@
 FROM ubuntu:14.04
 
+# Set versions to install
+ENV DOCKER_ENGINE_VERSION 1.12.1
+ENV DOCKER_COMPOSE_VERSION 1.8.0
+
 # Install curl so we can get the other binaries
 RUN apt-get update && apt-get install -y curl && apt-get clean && rm -rf /var/lib/apt/lists
 
@@ -12,12 +16,12 @@ RUN cat /etc/apt/sources.list.d/docker.list
 RUN apt-get update
 RUN apt-get purge lxc-docker
 RUN apt-cache policy docker-engine
-RUN apt-get install -y docker-engine=1.12.1-0~trusty
+RUN apt-get install -y docker-engine=$DOCKER_ENGINE_VERSION-0~trusty
 RUN service docker start
 RUN apt-get clean && rm -rf /var/lib/apt/lists
 
 # Install specific version of docker-compose
-RUN curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+RUN curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
 
 # Verify installation
