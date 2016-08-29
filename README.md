@@ -1,5 +1,11 @@
-# docker-and-compose
+Adds docker-compose to the [offcial docker image](https://hub.docker.com/_/docker/). 
 
-This repo contains a Dockerfile to build an image with the docker-engine and the docker-compose. 
+Can be used for docker-in-docker in GitLab like this:
+
+```
+  image: jonaskello/docker-and-compose:1.12.1-1.8.0
+  services:
+    - docker:1.12.1-dind
+```
 
 Each branch in this repo corresponds to a docker image in the format [docker-version]-[docker-compose-version].
