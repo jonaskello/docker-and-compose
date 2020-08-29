@@ -1,4 +1,4 @@
-Adds docker-compose to the [offcial docker image](https://hub.docker.com/_/docker/). 
+Adds docker-compose to the [official docker image](https://hub.docker.com/_/docker/). 
 
 Can be used for docker-in-docker in GitLab like this:
 
